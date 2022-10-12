@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <title>If and Unless</title>
+</head>
+<body>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Gender</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="temp: ${ifUser}">
+        <td th:text="${temp.name}"></td>
+        <td th:text="${temp.email}"></td>
+        <td th:text="${temp.role}"></td>
+        <td th:text="${temp.gender}"></td>
+        <td>
+            <a th:href="@{/update}" th:if="${temp.role} == 'admin'">Update</a>
+            <a th:href="@{/delete}" th:if="${temp.role} == 'admin'">Delete</a>
+            <a th:href="@{/view}" th:unless="${temp.role} == 'admin'">View</a>  // unless: meaning if not admin
+        </td>
+    </tr>
+    </tbody>
+
+</table>
+
+</body>
+</html>

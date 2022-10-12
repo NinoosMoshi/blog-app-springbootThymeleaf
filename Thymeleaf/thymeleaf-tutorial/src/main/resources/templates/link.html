@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>link Expression</title>
+    <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+
+
+
+   <a th:href="@{/variable}">Click hear to move to variable page</a>
+
+   <br>
+
+   <a th:href="@{/message}">Click hear to move to message page</a>
+
+   <br>
+
+    <a th:href="@{/variable/{tempId}(tempId=${modelId})}">link with the parameter</a>
+
+
+
+
+
+</body>
+</html>

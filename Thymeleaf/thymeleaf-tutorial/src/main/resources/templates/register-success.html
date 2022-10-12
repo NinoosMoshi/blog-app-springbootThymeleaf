@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Success Form</title>
+</head>
+<body>
+
+   <div align="center">
+       <h1>Success Form</h1>
+       <p>Name: <strong th:text="${userFormSuccess.name}"></strong></p>
+       <p>Email: <strong th:text="${userFormSuccess.email}"></strong></p>
+       <p>Password: <strong th:text="${userFormSuccess.password}"></strong></p>
+       <p>Gender: <strong th:text="${userFormSuccess.gender}"></strong></p>
+       <p>Profession: <strong th:text="${userFormSuccess.profession}"></strong></p>
+       <p>Address: <strong th:text="${userFormSuccess.address}"></strong></p>
+   </div>
+
+
+</body>
+</html>

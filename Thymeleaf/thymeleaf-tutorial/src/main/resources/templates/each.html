@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Each</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+           <tr>
+               <th>Count</th>
+               <th>Index</th>
+               <th>Size</th>
+               <th>Even</th>
+               <th>Odd</th>
+               <th>First</th>
+               <th>Last</th>
+               <th>Name</th>
+               <th>Email</th>
+               <th>Role</th>
+               <th>Gender</th>
+           </tr>
+        </thead>
+        <tbody>
+        <tr th:each="temp, userStatus : ${eachUser}">
+            <td th:text="${userStatus.count}"></td> // count, index, size, even/odd, first, last
+            <td th:text="${userStatus.index}"></td>
+            <td th:text="${userStatus.size}"></td>
+            <td th:text="${userStatus.even}"></td>
+            <td th:text="${userStatus.odd}"></td>
+            <td th:text="${userStatus.first}"></td>
+            <td th:text="${userStatus.last}"></td>
+            <td th:text="${temp.name}"></td>
+            <td th:text="${temp.email}"></td>
+            <td th:text="${temp.role}"></td>
+            <td th:text="${temp.gender}"></td>
+        </tr>
+        </tbody>
+
+    </table>
+
+
+</body>
+</html>

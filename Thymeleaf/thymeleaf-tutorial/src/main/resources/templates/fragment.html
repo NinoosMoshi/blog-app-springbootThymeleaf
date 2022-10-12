@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>fragment Expression</title>
+</head>
+<body>
+
+<!--    it will replace this div with div inside header.html-->
+    <div th:replace="~{/common/header :: headerFrag}"></div>
+
+    <div>Body</div>
+
+<!--    it will insert this div into div inside footer.html-->
+    <div th:insert="~{/common/footer :: footerFrag}"></div>
+
+</body>
+</html>
