@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--start header-->
+<div th:replace="admin/header :: header"></div>
+<!--end header-->
+<body>
+
+<!--start navbar-->
+<div th:replace="admin/header :: navbar"></div>
+<!--end navbar-->
+
+  <div class="container">
+      <div class="row">
+          <div class="col-md-8 offset-md-2">
+            <h2 th:text="${post.title}"></h2>
+            <hr />
+            <h4 th:text="${post.description}"></h4>
+            <hr />
+            <div th:utext="${post.content}"></div>
+
+          </div>
+      </div>
+  </div>
+
+
+
+<br /> <br /> <br /> <br /> <br />
+<!--start footer-->
+<div th:replace="admin/footer :: footer"></div>
+<!--end footer-->
+</body>
+</html>

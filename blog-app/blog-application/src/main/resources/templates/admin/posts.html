@@ -26,7 +26,11 @@
                 <td th:text="${temp.title}">post title</td>
                 <td th:text="${temp.description}">post description</td>
                 <td th:text="${temp.createdOn}">post created date</td>
-                <td></td>
+                <td>
+                    <a th:href="@{/admin/posts/{postId}/edit(postId=${temp.id})}" class="btn btn-primary">Edit</a>
+                    <a th:href="@{/admin/posts/{postId}/delete(postId=${temp.id})}" class="btn btn-danger">Delete</a>
+                    <a th:href="@{/admin/posts/{postUrl}/view(postUrl=${temp.url})}" class="btn btn-info">View</a>
+                </td>
               </tr>
             </tbody>
           </table>
