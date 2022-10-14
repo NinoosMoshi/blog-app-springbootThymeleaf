@@ -7,10 +7,7 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Locale;
@@ -90,6 +87,18 @@ public class PostController {
         model.addAttribute("post", postDto);
         return "admin/view_post";
     }
+
+    // http://localhost:8080/admin/posts/search?word=java
+    @GetMapping("/admin/posts/search")
+    public String searchPost(@RequestParam(value ="word") String word, Model model){
+      List<PostDTO> posts = postService.searchPosts(word);
+      model.addAttribute("postsDtoList", posts);
+        return "/admin/posts";
+    }
+
+
+
+
 
 
 
