@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <!--start header-->
+  <div th:replace="blog/header :: header"></div>
+  <!--end header-->
+<body>
+
+  <!--start navbar-->
+  <div th:replace="blog/header :: navbar"></div>
+  <!--end navbar-->
+  <br />
+
+ <div class="container">
+   <div class="row">
+     <div class="col-md-9">
+        <div th:each="temp: ${postResponse}">
+          <div class="card">
+            <div class="card-header">
+              <h3>
+                <a th:href="@{/post/{postUrl}(postUrl=${temp.url})}"
+                   th:text="${temp.title}"></a>
+                <div><strong th:text="${#temporals.format(temp.createdOn, 'dd MMMM yyyy')}"></strong></div>
+              </h3>
+            </div>
+            <div class="card-body">
+              <span th:utext="${temp.description}"></span>
+              <a th:href="@{/post/{postUrl}(postUrl=${temp.url})}">Read more</a>
+            </div>
+          </div>
+        </div>
+     </div>
+
+     <div class="col-md-3">
+        <!-- search bar -->
+         <div th:replace="blog/search :: search"></div>
+     </div>
+
+   </div>
+ </div>
+
+
+
+
+
+<br /> <br /> <br /> <br /> <br />
+<!--start footer-->
+<div th:replace="blog/footer :: footer"></div>
+<!--end footer-->
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous">
+</script>
+<script src="https://cdn.ckeditor.com/ckeditor5/35.2.1/classic/ckeditor.js"></script>
+<script>
+                        ClassicEditor
+                                .create( document.querySelector( '#content' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                } )
+                                .catch( error => {
+                                        console.error( error );
+                                } );
+    </script>
+</body>
+</html>
