@@ -1,5 +1,6 @@
 package com.ninos.controller;
 
+import com.ninos.dto.CommentDTO;
 import com.ninos.dto.PostDTO;
 import com.ninos.service.PostService;
 import org.springframework.stereotype.Controller;
@@ -30,7 +31,11 @@ public class BlogController {
     @GetMapping("/post/{postUrl}")
     public String showPost(@PathVariable("postUrl") String postUrl, Model model){
         PostDTO postByUrl = postService.findPostByUrl(postUrl);
+
+        CommentDTO commentDTO = new CommentDTO();
+
         model.addAttribute("postUrlTemp", postByUrl);
+        model.addAttribute("commentDTOTemp", commentDTO);
         return "blog/blog_post";
     }
 
